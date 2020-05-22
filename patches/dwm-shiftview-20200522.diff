@@ -1,19 +1,27 @@
-From 6dae09fbaec5752d0d1142e9123ed06cb75b482d Mon Sep 17 00:00:00 2001
+From a6fbd5a2b3c3b1684537268e63a273d12aa6f644 Mon Sep 17 00:00:00 2001
 From: Adam Abrams <adam.abrams@optum.com>
-Date: Fri, 22 May 2020 01:23:53 -0500
-Subject: [PATCH] add shiftview
+Date: Fri, 22 May 2020 02:40:45 -0500
+Subject: [PATCH] add shiftview patch
 
 ---
- config.def.h |  2 ++
+ config.def.h |  3 +++
  shiftview.c  | 19 +++++++++++++++++++
- 2 files changed, 21 insertions(+)
+ 2 files changed, 22 insertions(+)
  create mode 100644 shiftview.c
 
 diff --git a/config.def.h b/config.def.h
-index 427757c..497f3bc 100644
+index 427757c..8a8b1f1 100644
 --- a/config.def.h
 +++ b/config.def.h
-@@ -77,6 +77,8 @@ static Key keys[] = {
+@@ -66,6 +66,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
+ static const char *termcmd[]  = { "st", NULL };
+
+ #include "movestack.c"
++#include "shiftview.c"
+ static Key keys[] = {
+ 	/* modifier                     key        function        argument */
+ 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+@@ -77,6 +78,8 @@ static Key keys[] = {
  	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
  	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
  	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
@@ -47,6 +55,6 @@ index 0000000..e82053a
 +
 +	view(&shifted);
 +}
--- 
+--
 2.20.1 (Apple Git-117)
 
